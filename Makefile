@@ -1,8 +1,5 @@
-yarn-install:
+npm-install:
 	npm install --silent --progress=false -g yarn
-
-run-migrations: yarn-install
-	./applymigrations.sh
 
 serverless-install:
 	npm install --silent --progress=false -g npm
@@ -15,6 +12,6 @@ serverless-deploy:
 check-and-remove-concurrency:
 	@if [ $(STAGE) = "dev" ] || [ $(STAGE) = "test" ]; then echo "[INFO] Removing provisioned concurrency attribute from serverless yaml for DEV and TEST env."; sed -i '/provisionedConcurrency/d' serverless.yml; fi;
 
-deploy: run-migrations serverless-install check-and-remove-concurrency serverless-deploy
+deploy: npm-install serverless-install check-and-remove-concurrency serverless-deploy
 
 .DEFAULT_GOAL := deploy

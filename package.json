@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "serverless --host=ci --stage=${STAGE} deploy --alias provisioned"
   },
-  "author": "",
+  "author": "Test Service: 1",
   "license": "ISC",
   "dependencies": {
     "serverless": "^2.23.0",
